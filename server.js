@@ -23,7 +23,16 @@ app.get('/api/notes', function(req,res) {
     });
 });
 app.post('/api/notes', function(req,res) {
-    fs.appendFile('./db/db.json', 'new post', function(err) {
+    
+    var newpost = {
+        title:"New Title",
+        text:"New text"
+    };
+    function addNewPost(post) {
+        dbjson.push(post);
+        return JSON.stringify(dbjson);
+    }
+    fs.writeFile('./db/db.json', addNewPost(newpost), function(err) {
         if (err){
             throw err;
         }
