@@ -27,9 +27,13 @@ app.get('/assets/js/index.js', function(req,res) {
 });
 //API ROUTES--------------------------------------------
 app.get('/api/notes', function(req,res) {
-    fs.readFile(dbjson, 'utf8', function(err,data) {
-
+    fs.readFile('./db/db.json', 'utf8', function(err,data) {
+        if (err){
+            throw err;
+        }
     });
+    res.json(dbjson);
+
 });
 app.post('/api/notes', function(req,res) {  
     var newpost = req.body;
