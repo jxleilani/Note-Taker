@@ -10,10 +10,13 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 //ROUTES-----------------------------------------------
-app.get('*', function(req,res) {
+app.get('/', function(req,res) {
+    console.log(path.join(__dirname, 'public', 'index.html'));
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
+
 app.get('/notes', function(req,res) {
+    console.log(path.join(__dirname, 'public', 'notes.html'));
     res.sendFile(path.join(__dirname, 'public', 'notes.html'));
 });
 //API ROUTES--------------------------------------------
