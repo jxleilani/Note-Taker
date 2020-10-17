@@ -4,20 +4,26 @@ var fs = require("fs");
 var dbjson = require("./db/db.json");
 
 var app = express();
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 3030;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 //ROUTES-----------------------------------------------
 app.get('/', function(req,res) {
-    console.log(path.join(__dirname, 'public', 'index.html'));
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 app.get('/notes', function(req,res) {
-    console.log(path.join(__dirname, 'public', 'notes.html'));
     res.sendFile(path.join(__dirname, 'public', 'notes.html'));
+});
+// CSS STYLES -----------------------------------------
+app.get('/assets/css/styles.css', function(req,res) {
+    res.sendFile(path.join(__dirname, 'public/assets/css', 'styles.css'));
+});
+// JS SCRIPTS -----------------------------------------
+app.get('/assets/js/index.js', function(req,res) {
+    res.sendFile(path.join(__dirname, 'public/assets/js', 'index.js'));
 });
 //API ROUTES--------------------------------------------
 app.get('/api/notes', function(req,res) {
@@ -25,12 +31,9 @@ app.get('/api/notes', function(req,res) {
 
     });
 });
-app.post('/api/notes', function(req,res) {
-    
-    var newpost = {
-        title:"New Title",
-        text:"New text"
-    };
+app.post('/api/notes', function(req,res) {  
+    var newpost = req.body;
+    //adds input from notes page to dbjson array of objects
     function addNewPost(post) {
         dbjson.push(post);
         return JSON.stringify(dbjson);
