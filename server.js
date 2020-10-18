@@ -40,6 +40,10 @@ app.post('/api/notes', function(req,res) {
     //adds input from notes page to dbjson array of objects
     function addNewPost(post) {
         dbjson.push(post);
+        for(let i=0;i<dbjson.length;i++) {
+            dbjson[i].id = i;
+            console.log(dbjson[i].id);
+        }
         return JSON.stringify(dbjson);
     }
     fs.writeFile('./db/db.json', addNewPost(newpost), function(err) {
@@ -52,6 +56,8 @@ app.post('/api/notes', function(req,res) {
 app.delete('/api/notes/:id', function(req,res) {
     var noteId = req.params.id;
     console.log(noteId);
+    dbjson.splice(noteId,1);
+    res.json(djson);
 });
 
 //START THE SERVER-------------------------------------
