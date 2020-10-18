@@ -55,9 +55,14 @@ app.post('/api/notes', function(req,res) {
 });
 app.delete('/api/notes/:id', function(req,res) {
     var noteId = req.params.id;
-    console.log(noteId);
     dbjson.splice(noteId,1);
-    res.json(djson);
+    fs.writeFile('./db/db.json', JSON.stringify(dbjson), function(err) {
+        if (err){
+            throw err;
+        }
+    });
+    console.log(dbjson);
+    res.json(dbjson);
 });
 
 //START THE SERVER-------------------------------------
