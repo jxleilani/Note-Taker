@@ -42,7 +42,6 @@ app.post('/api/notes', function(req,res) {
         dbjson.push(post);
         for(let i=0;i<dbjson.length;i++) {
             dbjson[i].id = i;
-            console.log(dbjson[i].id);
         }
         return JSON.stringify(dbjson);
     }
@@ -55,13 +54,18 @@ app.post('/api/notes', function(req,res) {
 });
 app.delete('/api/notes/:id', function(req,res) {
     var noteId = req.params.id;
+    //remove dbjson index of noteId from the array
     dbjson.splice(noteId,1);
+    //reassign id numbers
+    for(let i=0;i<dbjson.length;i++) {
+        dbjson[i].id = i;
+    }
+    //rewrite the file, have to stringify the objects
     fs.writeFile('./db/db.json', JSON.stringify(dbjson), function(err) {
         if (err){
             throw err;
         }
     });
-    console.log(dbjson);
     res.json(dbjson);
 });
 
