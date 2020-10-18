@@ -2,8 +2,21 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
+  font-family: 'Handlee', cursive;
 }
-
+li {
+  font-size: 1.2rem;
+}
+textarea {
+  font-size: 1.4rem;
+}
+.navbar {
+  background: linear-gradient(to right,#d499f0, #7a07bd)
+}
+.navbar-brand {
+  font-size: 2rem;
+  font-weight: bold;
+}
 .save-note {
   display: none;
 }
