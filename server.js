@@ -8,7 +8,7 @@ var PORT = process.env.PORT || 3030;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
+app.use(express.static('public'));
 //ROUTES-----------------------------------------------
 app.get('/', function(req,res) {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
@@ -17,14 +17,7 @@ app.get('/', function(req,res) {
 app.get('/notes', function(req,res) {
     res.sendFile(path.join(__dirname, 'public', 'notes.html'));
 });
-// CSS STYLES -----------------------------------------
-app.get('/assets/css/styles.css', function(req,res) {
-    res.sendFile(path.join(__dirname, 'public/assets/css', 'styles.css'));
-});
-// JS SCRIPTS -----------------------------------------
-app.get('/assets/js/index.js', function(req,res) {
-    res.sendFile(path.join(__dirname, 'public/assets/js', 'index.js'));
-});
+
 //API ROUTES--------------------------------------------
 app.get('/api/notes', function(req,res) {
     fs.readFile('./db/db.json', 'utf8', function(err,data) {
