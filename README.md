@@ -1,6 +1,6 @@
 # Note-Taker
 This application is for writing, saving, and deleting notes. 
-![Screenshot of Note Taking App](https://jxleilani.github.com/Note-Taker/public/assets/img/screenshot.png)
+![Screenshot of Note Taking App](https://jxleilani.github.io/Note-Taker/public/assets/img/screenshot.png)
 
 ## Technical Description
 The application uses an express.js server to save and retrieve data from a JSON file. The interface also allows the user to delete notes, which removes the selected note from the JSON file. 
