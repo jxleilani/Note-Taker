@@ -1,5 +1,6 @@
 # Note-Taker
-This application is for writing, saving, and deleting notes. 
+This application is for writing, saving, and deleting notes.  
+
 ![Screenshot of Note Taking App](https://jxleilani.github.io/Note-Taker/public/assets/img/screenshot.png)
 
 ## Technical Description
@@ -13,10 +14,10 @@ The application uses an express.js server to save and retrieve data from a JSON 
 * Node
 * Express.js
 
-## API
-> /api/notes  
-POST request that returns the json object of saved notes
-> /api/notes/:id  
+## API Usage
+> **/api/notes**  
+POST request that returns the json object of saved notes  
+> **/api/notes/:id**  
 DELETE request that will delete a note. Id=index and starts at 0.
 
 ## User Story
