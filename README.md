@@ -1,6 +1,6 @@
 # Note-Taker
 
-This application is for writing, saving, and deleting notes: [Try the app here](https://blooming-spire-75700.herokuapp.com/notes)!
+This application is for writing, saving, and deleting notes: [Try the app here](https://blooming-spire-75700.herokuapp.com/)!
 
 ![Screenshot of Note Taking App](https://jxleilani.github.io/Note-Taker/public/assets/img/screenshot.png)
 
