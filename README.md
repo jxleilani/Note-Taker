@@ -7,13 +7,20 @@ This application is for writing, saving, and deleting notes: [Try the app here](
 ## Technical Description
 The application uses an express.js server to save and retrieve data from a JSON file. The interface also allows the user to delete notes, which removes the selected note from the JSON file. 
 
-**Other Technologies:**
+**Other Technologies Used:**
 * HTML
 * CSS
 * JavaScript
 * jQuery
 * Node
 * Express.js
+
+## Instructions
+Click on [Try the app here](https://blooming-spire-75700.herokuapp.com/). Then click on Get Started.  
+Type your note title and note text and then click the save icon.  
+To create a new note, click on the pencil icon in the top right corner.  
+To view previously created notes, click on the title from the left pane.
+To delete a note, click on the red trash icon.
 
 ## API Usage
 > **/api/notes**  
